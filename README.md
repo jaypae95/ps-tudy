@@ -9,18 +9,18 @@
 
 1. lambda.py에서 username들과 slack_webhook_url 정보 입력 (필터도 원하는대로)
 1. 해당 repository 전체를 다음과 같은 구조가 되도록 압축
-```
-xxxx.zip _
-         |_ bin
-         |_certifi
-         |_ ...
-         |_ ...
-         |_ lambda.py
-         |_ README.md
-```
-(lambda.py와 README.md를 제외한 나머지 파일들은 `pip3 install requests .`를 통해 생성)
+    ```
+    xxxx.zip _
+             |_ bin
+             |_certifi
+             |_ ...
+             |_ ...
+             |_ lambda.py
+             |_ README.md
+    ```
+    (lambda.py와 README.md를 제외한 나머지 파일들은 `pip3 install requests .`를 통해 생성)
 
-- aws lambda 생성
+1. aws lambda 생성
     1. aws 로그인
     1. https://ap-northeast-2.console.aws.amazon.com/lambda 접속
     1. Create function 클릭
