@@ -8,7 +8,7 @@ username2 = ''
 username3 = ''
 
 slack_webhook_url = ''
-url = 'https://solved.ac/search/-solved_by%3A{0}%20-solved_by%3A{1}%20-solved_by%3A{2}%20tier%3As2..s1%20solved%3A200..'.format(username1, username2, username3)
+url = 'https://solved.ac/search/-solved_by%3A{0}%20-solved_by%3A{1}%20-solved_by%3A{2}%20tier%3As2..s1%20solved%3A200..?page='.format(username1, username2, username3)
 
 num = []
 
