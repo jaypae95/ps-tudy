@@ -28,7 +28,7 @@ def main_event():
     for pp in range(1, 10):
         rr = requests.get(url + str(pp))
         dd = rr.content.decode()
-        dd_list = dd.split('<td><a class="problem_id " href="//acmicpc.net/problem/')
+        dd_list = dd.split('<span><a href="https://www.acmicpc.net/problem/')
         if len(dd_list) < 2:
             break
         for ii in range(1, len(dd_list)):
