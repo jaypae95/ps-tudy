@@ -3,15 +3,13 @@ import requests
 import json
 import random
 import logging
-import boto3
-
 
 
 slack_webhook_url = ''
 url = 'https://solved.ac/search?query='
-for uu in range(len(username1)):
-    url += f'-solved_by%3A{USERNAME[uu]}%20'
-url += 'tier%3As2..s1%20solved%3A200..?page='
+for uu in range(len(USERNAME)):
+    url += f'-solved_by%3A{USERNAME[uu]}+'
+url += 'tier%3Ag5..g1+solved%3A200..&page='
 num = []
 
 logger = logging.getLogger()
@@ -53,7 +51,7 @@ def send_to_slack():
                 }]
         }]
     }
-    # requests.post(slack_webhook_url, data=json.dumps(payload))
+    requests.post(slack_webhook_url, data=json.dumps(payload))
 
 
 if __name__ == "__main__":
