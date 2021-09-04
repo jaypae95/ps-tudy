@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     logger.info('start')
 
     choice = get_problem_url()
-    send_to_slack()
+    send_to_slack(choice)
 
     logger.info('finish')
 
@@ -40,6 +40,7 @@ def send_to_slack(choice):
     }
     requests.post(SLACK_WEBHOOK_URL, data=json.dumps(payload))
 
+
 def get_problem_url():
     for pp in range(1, 10):
         rr = requests.get(url + str(pp))
@@ -51,6 +52,7 @@ def get_problem_url():
             num.append(dd_list[ii].split('"')[0])
 
     return random.sample(num, 2)
+
 
 if __name__ == "__main__":
     lambda_handler(None, None)
