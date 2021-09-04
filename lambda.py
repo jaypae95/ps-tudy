@@ -2,6 +2,7 @@ import requests
 import json
 import random
 import logging
+import boto3
 
 username1 = ''
 username2 = ''
@@ -19,12 +20,12 @@ logger.setLevel(logging.INFO)
 def lambda_handler(event, context):
     logger.info('start')
 
-    main_event()
+    send_to_slack()
 
     logger.info('finish')
 
 
-def main_event():
+def send_to_slack():
     for pp in range(1, 10):
         rr = requests.get(url + str(pp))
         dd = rr.content.decode()
