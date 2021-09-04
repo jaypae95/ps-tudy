@@ -3,6 +3,8 @@
 - 구성원 세 명이 모두 풀지 않는 문제 중 특정 조건에 맞게 필터링
   - ex) 세 명이 모두 풀지 않았으며, 난이도는 실버1 ~ 골드3 사이, 문제 푼 사람 수는 200명 이상 필터
 - 두 문제 씩 뽑아 Slack webhook 메시지로 전송
+- AWS SES를 통한 메일 전송
+- AWS SNS를 통한 문자 메시지 전송
 
 ## settings
 - `cp settings_local_sample.py settings_local.py` 내용 기입
@@ -15,6 +17,8 @@
   - AWS_REGION
   - AWS_ACCESS_KEY_ID
   - AWS_SECRET_ACCESS_KEY
+- sns 사용 시
+  - PHONENUMBER'
 
 ## aws lambda
 - 정해진 시간, 월요일 ~ 금요일 오후 8시에 두 문제씩 뽑기 위해 aws의 lambda 이용
@@ -52,3 +56,7 @@
 ## aws ses
    1. access key 발급 후 settings_local에 작성
    2. aws ses에서 email verfiy
+
+## aws sns
+   1. access key 발급 후 settings_local에 작성
+   2. aws sns 사이드바에서 문자메시지(SMS)를 클릭하여 샌드박스 대상 전화번호에 전화번호 추가

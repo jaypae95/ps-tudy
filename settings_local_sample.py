@@ -3,5 +3,7 @@ SLACK_WEBHOOK_URL = ''
 SENDER = 'zzzz@zzz.zz'
 RECIPIENT = ['aaaa@aaa.aa', 'bbbb@bbb.bb', 'cccc@ccc.cc']
 AWS_REGION = 'ap-northeast-2'
+AWS_SNS_REGION = 'us-east-1'
 AWS_ACCESS_KEY_ID = 'aaaaaaaaaaaaaaa'
 AWS_SECRET_ACCESS_KEY = 'aaaaaaaaaaaaaaa'
+PHONENUMBER = ['01000000000', '01000000000']

@@ -2,8 +2,10 @@ from settings_local import USERNAME, \
     SLACK_WEBHOOK_URL, \
     SENDER, RECIPIENT, \
     AWS_REGION, \
+    AWS_SNS_REGION,\
     AWS_ACCESS_KEY_ID, \
-    AWS_SECRET_ACCESS_KEY
+    AWS_SECRET_ACCESS_KEY, \
+    PHONENUMBER
 import requests
 import json
 import random
@@ -25,11 +27,24 @@ logger.setLevel(logging.INFO)
 def lambda_handler(event, context):
     logger.info('start')
 
-    choice = get_problem_url()
+    # choice = get_problem_url()
     # send_to_slack(choice)
-    send_email(choice)
+    # send_email(choice)
+    send_message()
 
     logger.info('finish')
+
+
+def send_message():
+    client = boto3.client('sns',
+                          aws_access_key_id=AWS_ACCESS_KEY_ID,
+                          aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                          region_name=AWS_SNS_REGION
+                          )
+
+    message = f'오늘의 문제입니다! 문제가 없습니다 ㅋㅋ'
+    for pp in PHONENUMBER:
+        response = client.publish(PhoneNumber=f'+82{pp}', Message=message)
 
 
 def send_email(choice):
