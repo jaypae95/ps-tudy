@@ -1,0 +1,1 @@
+USERNAME = ['aaaa', 'bbbb', 'cccc']

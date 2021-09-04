@@ -1,16 +1,17 @@
+from settings_local import USERNAME
 import requests
 import json
 import random
 import logging
 import boto3
 
-username1 = ''
-username2 = ''
-username3 = ''
+
 
 slack_webhook_url = ''
-url = 'https://solved.ac/search?query=-solved_by%3A{0}%20-solved_by%3A{1}%20-solved_by%3A{2}%20tier%3As2..s1%20solved%3A200..?page='.format(username1, username2, username3)
-
+url = 'https://solved.ac/search?query='
+for uu in range(len(username1)):
+    url += f'-solved_by%3A{USERNAME[uu]}%20'
+url += 'tier%3As2..s1%20solved%3A200..?page='
 num = []
 
 logger = logging.getLogger()
@@ -38,7 +39,7 @@ def send_to_slack():
     choice = random.sample(num, 2)
     print('https://www.acmicpc.net/problem/%s' % choice[0])
     print('https://www.acmicpc.net/problem/%s' % choice[1])
-
+    print(url)
     payload = {
         'text': '오늘의 문제입니다.',
         'attachments': [{
@@ -52,7 +53,7 @@ def send_to_slack():
                 }]
         }]
     }
-    requests.post(slack_webhook_url, data=json.dumps(payload))
+    # requests.post(slack_webhook_url, data=json.dumps(payload))
 
 
 if __name__ == "__main__":
