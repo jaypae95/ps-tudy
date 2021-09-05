@@ -34,7 +34,7 @@
              |_ lambda.py
              |_ README.md
     ```
-    (lambda.py와 README.md를 제외한 나머지 파일들은 `pip3 install requests .`를 통해 생성)
+    (lambda.py와 README.md를 제외한 나머지 파일들은 `pip3 install -r requirements.txt -t .`를 통해 생성)
 
 3. aws lambda 생성
     1. aws 로그인
